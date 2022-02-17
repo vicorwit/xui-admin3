@@ -43,9 +43,15 @@
                 </transition>
                 <transition name="list" appear>
                     <a-card hoverable>
-                        <div slot="title">
-                            <a-button type="primary" icon="plus" @click="openAddInbound"></a-button>
-                        </div>
+                        
+                        <template slot="addUser" slot-scope="text, dbInbound">
+                                <template v-if="dbInbounds.length > 2">
+                                    <div slot="title">
+                                        <a-button type="primary" icon="plus" @click="openAddInbound"></a-button>
+                                    </div>
+                                </template>
+                                <a-tag v-else color="green">无限期</a-tag>
+                         </template>
 <!--                        <a-input v-model="searchKey" placeholder="搜索" autofocus style="max-width: 300px"></a-input>-->
                         <a-table :columns="columns" :row-key="dbInbound => dbInbound.id"
                                  :data-source="dbInbounds"
