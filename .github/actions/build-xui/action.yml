@@ -1,0 +1,13 @@
+name: 'Build xui'
+outputs:
+  filename:
+    description: 'xui filename'
+inputs:
+  dir:  # id of input
+    description: 'directory to build'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.dir }}
