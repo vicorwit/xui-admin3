@@ -37,7 +37,7 @@
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-input v-model="dbInbound.totalGB" value="50" readonly>50</a-input>
+        <a-input-number v-model="dbInbound.totalGB" :min="0"></a-input-number>
     </a-form-item>
     <a-form-item>
         <span slot="label">
@@ -103,4 +103,4 @@
 <template v-if="inbound.canSniffing()">
     {{template "form/sniffing"}}
 </template>
-{{end}} 
+{{end}}
